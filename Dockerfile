@@ -9,8 +9,5 @@ RUN apk add --no-cache nodejs yarn && yarn global add neovim
 RUN apk add --no-cache python3 py3-pip gcc python3-dev musl-dev && pip install neovim
 
 # User
-RUN adduser -S -h /home/user user
+RUN adduser -S -h /home/user user && chmod 777 /home/user
 USER user
-
-# Neovim Config
-RUN mkdir -p $HOME/.config/nvim && echo ':so $HOME/.vim/vimrc' > $HOME/.config/nvim/init.vim

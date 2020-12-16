@@ -1,3 +1,3 @@
 #!/bin/sh
 DIR=$(cd "$(dirname $0)";pwd)
-docker run -it --rm -u $(id -u):$(id -g) -v $DIR/.vim:/.vim -v $DIR/.config:/.config -v $DIR/.local:/.local  -v $PWD:$PWD -w $PWD myvim/vimd:ide $*
+docker run -it --rm -u $(id -u):$(id -g) -w $PWD -v $PWD:$PWD -v $DIR/.vim:/.vim -v $DIR/.config:/.config -v $DIR/.local:/.local myvim/vimd:ide $*
